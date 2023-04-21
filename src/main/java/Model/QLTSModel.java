@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 public class QLTSModel {
     private ArrayList<ThiSinh> dsThiSinh;
+    private String luaChon;
+
+    public String getLuaChon() {
+        return luaChon;
+    }
+
+    public void setLuaChon(String luaChon) {
+        this.luaChon = luaChon;
+    }
 
     public QLTSModel() {
         this.dsThiSinh = new ArrayList<ThiSinh>();
+        this.luaChon = "";
     }
 
     public QLTSModel(ArrayList<ThiSinh> dsThiSinh) {

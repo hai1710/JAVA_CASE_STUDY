@@ -2,42 +2,36 @@ package View;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import Controller.QLSVController;
 import Model.QLTSModel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
+import Model.ThiSinh;
+import Model.Tinh;
+
 import java.awt.Font;
-import javax.swing.Box;
 import javax.swing.border.BevelBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JRadioButton;
 
 public class QLTSView extends JFrame {
 
+    public final ButtonGroup btn_GioiTinh;
+    public final JComboBox comboBox_QueQuan;
     private JPanel contentPane;
-    QLTSModel model;
-    private JTextField textField_maSinhVien;
+    public QLTSModel model;
+    public JTextField textField_maSinhVien;
     private JTable table;
-    private JTextField textField_ID;
-    private JTextField textField_HoTen;
-    private JTextField textField_NgaySinh;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
+    public JTextField textField_ID;
+    public JTextField textField_HoTen;
+    public JTextField textField_NgaySinh;
+    public JTextField textField_Diem1;
+    public JTextField textField_Diem2;
+    public JTextField textField_Diem3;
     /**
      * Launch the application.
      */
@@ -61,6 +55,9 @@ public class QLTSView extends JFrame {
         this.model = new QLTSModel();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 913, 749);
+
+
+        ActionListener actionListener = new QLSVController(this);
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
@@ -121,9 +118,14 @@ public class QLTSView extends JFrame {
         btnNewButton.setBounds(774, 11, 115, 43);
         contentPane.add(btnNewButton);
 
-        JComboBox comboBox_QueQuan = new JComboBox();
-        comboBox_QueQuan.setBounds(106, 12, 264, 43);
-        contentPane.add(comboBox_QueQuan);
+        JComboBox comboBox_QueQuan_TimKiem = new JComboBox();
+        ArrayList<Tinh> listTinh = Tinh.getDSTinh();
+        comboBox_QueQuan_TimKiem.addItem("");
+        for (Tinh tinh: listTinh) {
+            comboBox_QueQuan_TimKiem.addItem(tinh.getTenTinh());
+        }
+        comboBox_QueQuan_TimKiem.setBounds(106, 12, 264, 43);
+        contentPane.add(comboBox_QueQuan_TimKiem);
 
         JSeparator separator_1 = new JSeparator();
         separator_1.setBounds(10, 72, 879, 2);
@@ -181,9 +183,13 @@ public class QLTSView extends JFrame {
         lblQueQuan_1.setBounds(10, 475, 123, 61);
         contentPane.add(lblQueQuan_1);
 
-        JComboBox comboBox_QueQuan_1 = new JComboBox();
-        comboBox_QueQuan_1.setBounds(116, 490, 219, 35);
-        contentPane.add(comboBox_QueQuan_1);
+        comboBox_QueQuan = new JComboBox();
+        comboBox_QueQuan.addItem("");
+        for (Tinh tinh: listTinh) {
+            comboBox_QueQuan.addItem(tinh.getTenTinh());
+        }
+        comboBox_QueQuan.setBounds(116, 490, 219, 35);
+        contentPane.add(comboBox_QueQuan);
 
         JLabel lblNgaySinh = new JLabel("Ngày sinh");
         lblNgaySinh.setFont(new Font("Times New Roman", Font.PLAIN, 17));
@@ -215,57 +221,66 @@ public class QLTSView extends JFrame {
         rdbtnNu.setBounds(643, 421, 103, 21);
         contentPane.add(rdbtnNu);
 
+        btn_GioiTinh = new ButtonGroup();
+        btn_GioiTinh.add(rdbtnNam);
+        btn_GioiTinh.add(rdbtnNu);
+
         JLabel lblDiem1 = new JLabel("Điểm 1");
         lblDiem1.setFont(new Font("Times New Roman", Font.PLAIN, 17));
         lblDiem1.setBounds(378, 447, 123, 61);
         contentPane.add(lblDiem1);
 
-        textField = new JTextField();
-        textField.setColumns(10);
-        textField.setBounds(486, 467, 219, 26);
-        contentPane.add(textField);
+        textField_Diem1 = new JTextField();
+        textField_Diem1.setColumns(10);
+        textField_Diem1.setBounds(486, 467, 219, 26);
+        contentPane.add(textField_Diem1);
 
         JLabel lblDiem2 = new JLabel("Điểm 2");
         lblDiem2.setFont(new Font("Times New Roman", Font.PLAIN, 17));
         lblDiem2.setBounds(378, 475, 123, 61);
         contentPane.add(lblDiem2);
 
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(486, 495, 219, 26);
-        contentPane.add(textField_1);
+        textField_Diem2 = new JTextField();
+        textField_Diem2.setColumns(10);
+        textField_Diem2.setBounds(486, 495, 219, 26);
+        contentPane.add(textField_Diem2);
 
         JLabel lblDiem3 = new JLabel("Điểm 3");
         lblDiem3.setFont(new Font("Times New Roman", Font.PLAIN, 17));
         lblDiem3.setBounds(378, 500, 123, 61);
         contentPane.add(lblDiem3);
 
-        textField_2 = new JTextField();
-        textField_2.setColumns(10);
-        textField_2.setBounds(486, 523, 219, 26);
-        contentPane.add(textField_2);
+        textField_Diem3 = new JTextField();
+        textField_Diem3.setColumns(10);
+        textField_Diem3.setBounds(486, 523, 219, 26);
+        contentPane.add(textField_Diem3);
 
         JButton btnThem = new JButton("Thêm");
+        btnThem.addActionListener(actionListener);
         btnThem.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         btnThem.setBounds(18, 596, 115, 43);
         contentPane.add(btnThem);
 
         JButton btnXoa = new JButton("Xóa");
+        btnXoa.addActionListener(actionListener);
         btnXoa.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         btnXoa.setBounds(191, 596, 115, 43);
         contentPane.add(btnXoa);
 
         JButton btnCapNhat = new JButton("Cập Nhật");
+        btnCapNhat.addActionListener(actionListener);
         btnCapNhat.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         btnCapNhat.setBounds(363, 596, 115, 43);
         contentPane.add(btnCapNhat);
 
         JButton btnLuu = new JButton("Lưu");
+        btnLuu.addActionListener(actionListener);
         btnLuu.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         btnLuu.setBounds(548, 596, 115, 43);
         contentPane.add(btnLuu);
 
         JButton btnHuyBo = new JButton("Hủy Bỏ");
+        btnHuyBo.addActionListener(actionListener);
         btnHuyBo.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         btnHuyBo.setBounds(736, 596, 115, 43);
         contentPane.add(btnHuyBo);
@@ -273,5 +288,24 @@ public class QLTSView extends JFrame {
         JSeparator separator_2 = new JSeparator();
         separator_2.setBounds(10, 582, 879, 4);
         contentPane.add(separator_2);
+
+    }
+    public void xoaFrom(){
+        textField_ID.setText("");
+        textField_HoTen.setText("");
+        textField_NgaySinh.setText("");
+        textField_Diem1.setText("");
+        textField_Diem2.setText("");
+        textField_Diem3.setText("");
+        comboBox_QueQuan.setSelectedIndex(-1);
+        btn_GioiTinh.clearSelection();
+    }
+
+    public void themThiSinh(ThiSinh thiSinh) {
+        this.model.insert(thiSinh);
+
+    }
+
+    public void capNhatThiSinh(ThiSinh thiSinh) {
     }
 }
