@@ -1,9 +1,10 @@
-package Model;
+package model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class ThiSinh {
+public class ThiSinh implements Serializable{
     private int maThiSinh;
     private String tenThiSinh;
     private Tinh queQuan;
@@ -14,7 +15,8 @@ public class ThiSinh {
     public ThiSinh() {
     }
 
-    public ThiSinh(int maThiSinh, String tenThiSinh, Tinh queQuan, Date ngaySinh, boolean gioiTinh, float diemMon1, float diemMon2, float diemMon3) {
+    public ThiSinh(int maThiSinh, String tenThiSinh, Tinh queQuan, Date ngaySinh, boolean gioiTinh, float diemMon1,
+                   float diemMon2, float diemMon3) {
         this.maThiSinh = maThiSinh;
         this.tenThiSinh = tenThiSinh;
         this.queQuan = queQuan;
@@ -91,35 +93,30 @@ public class ThiSinh {
 
     @Override
     public String toString() {
-        return "ThiSinh{" +
-                "maThiSinh=" + maThiSinh +
-                ", tenThiSinh='" + tenThiSinh + '\'' +
-                ", queQuan=" + queQuan +
-                ", ngaySinh=" + ngaySinh +
-                ", gioiTinh=" + gioiTinh +
-                ", diemMon1=" + diemMon1 +
-                ", diemMon2=" + diemMon2 +
-                ", diemMon3=" + diemMon3 +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ThiSinh)) return false;
-        ThiSinh thiSinh = (ThiSinh) o;
-        return maThiSinh == thiSinh.maThiSinh
-                && gioiTinh == thiSinh.gioiTinh
-                && Float.compare(thiSinh.diemMon1, diemMon1) == 0
-                && Float.compare(thiSinh.diemMon2, diemMon2) == 0
-                && Float.compare(thiSinh.diemMon3, diemMon3) == 0
-                && Objects.equals(tenThiSinh, thiSinh.tenThiSinh)
-                && Objects.equals(queQuan, thiSinh.queQuan)
-                && Objects.equals(ngaySinh, thiSinh.ngaySinh);
+        return "ThiSinh [maThiSinh=" + maThiSinh + ", tenThiSinh=" + tenThiSinh + ", queQuan=" + queQuan + ", ngaySinh="
+                + ngaySinh + ", gioiTinh=" + gioiTinh + ", diemMon1=" + diemMon1 + ", diemMon2=" + diemMon2
+                + ", diemMon3=" + diemMon3 + "]";
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(maThiSinh, tenThiSinh, queQuan, ngaySinh, gioiTinh, diemMon1, diemMon2, diemMon3);
+        return Objects.hash(diemMon1, diemMon2, diemMon3, gioiTinh, maThiSinh, ngaySinh, queQuan, tenThiSinh);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ThiSinh other = (ThiSinh) obj;
+        return Float.floatToIntBits(diemMon1) == Float.floatToIntBits(other.diemMon1)
+                && Float.floatToIntBits(diemMon2) == Float.floatToIntBits(other.diemMon2)
+                && Float.floatToIntBits(diemMon3) == Float.floatToIntBits(other.diemMon3) && gioiTinh == other.gioiTinh
+                && maThiSinh == other.maThiSinh && Objects.equals(ngaySinh, other.ngaySinh)
+                && Objects.equals(queQuan, other.queQuan) && Objects.equals(tenThiSinh, other.tenThiSinh);
+    }
+
 }

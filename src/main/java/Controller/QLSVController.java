@@ -1,58 +1,82 @@
-package Controller;
+package controller;
 
-import Model.ThiSinh;
-import Model.Tinh;
-import View.QLTSView;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.Date;
+import java.beans.PropertyChangeListener;
 
-public class QLSVController implements ActionListener {
+import javax.swing.Action;
 
-    public QLTSView view;
+import view.QLSVView;
 
-    public QLSVController(QLTSView view) {
+public class QLSVController implements Action{
+    public QLSVView view;
+
+
+    public QLSVController(QLSVView view) {
         this.view = view;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String actionCommand = e.getActionCommand();
-        JOptionPane.showMessageDialog(view,"Bạn vừa nhấn vào: " + actionCommand);
-
-
-        if( actionCommand.equals("Thêm")){
-            this.view.xoaFrom();
+        String cm = e.getActionCommand();
+//		JOptionPane.showMessageDialog(view, "Bạn vừa nhấn vào: "+cm);
+        if(cm.equals("Thêm")) {
+            this.view.xoaForm();
             this.view.model.setLuaChon("Thêm");
-        }else if( actionCommand.equals("Lưu")) {
-       try {
-           //Lấy dữ liệu
-           int maThiSinh = Integer.valueOf(this.view.textField_ID.getText());
-           String hoTen = this.view.textField_HoTen.getText();
-           int queQuan = this.view.comboBox_QueQuan.getSelectedIndex();
-           Tinh tinh = Tinh.getTinhById(queQuan);
-           Date ngaySinh = new Date(this.view.textField_NgaySinh.getText());
-           boolean gioiTinh = true;
-           String chonGioiTinh = this.view.btn_GioiTinh.getSelection()+"";
-           if (chonGioiTinh.equals("Nam")){
-               gioiTinh = true;
-           } else {gioiTinh = false;}
-           float diemMon1 = Float.valueOf(this.view.textField_Diem1.getText());
-           float diemMon2 = Float.valueOf(this.view.textField_Diem2.getText());
-           float diemMon3 = Float.valueOf(this.view.textField_Diem3.getText());
-
-           ThiSinh thiSinh = new ThiSinh(maThiSinh,hoTen,tinh,ngaySinh,gioiTinh,diemMon1,diemMon2,diemMon3);
-           if (this.view.model.getLuaChon().equals("")||this.view.model.getLuaChon().equals("Thêm")){
-               this.view.themThiSinh(thiSinh);
-           }else if (this.view.model.getLuaChon().equals("Cập Nhật")){
-               this.view.capNhatThiSinh(thiSinh);
-           }
-       }catch (Exception e2){
-           e2.printStackTrace();
-       }
-        } else if (actionCommand.equals("")){}
+        }else if(cm.equals("Lưu")) {
+            try {
+                this.view.thucHienThemThiSinh();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }else if(cm.equals("Cập nhật")) {
+            this.view.hienThiThongTinThiSinhDaChon();
+        }else if(cm.equals("Xóa")) {
+            this.view.thucHienXoa();
+        }else if(cm.equals("Hủy bỏ")) {
+            this.view.xoaForm();
+        }else if(cm.equals("Tìm")) {
+            this.view.thucHienTim();
+        }else if(cm.equals("Hủy tìm")) {
+            this.view.thucHienTaiLaiDuLieu();
+        }else if(cm.equals("About Me")) {
+            this.view.hienThiAbout();
+        }else if(cm.equals("Exit")) {
+            this.view.thoatKhoiChuongTrinh();
+        }else if(cm.equals("Save")) {
+            this.view.thucHienSaveFile();
+        }else if(cm.equals("Open")) {
+            this.view.thucHienOpenFile();
+        }
     }
+
+    @Override
+    public Object getValue(String key) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void putValue(String key, Object value) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void setEnabled(boolean b) {
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+
+    }
+
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+    }
+
 }
