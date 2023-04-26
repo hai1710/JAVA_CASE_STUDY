@@ -173,9 +173,9 @@ public class QLSVView extends JFrame {
 
         table = new JTable();
         table.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        table.setModel(new DefaultTableModel(new Object[][] {},
-                new String[] { "M\u00E3 th\u00ED sinh", "H\u1ECD t\u00EAn", "Qu\u00EA qu\u00E1n", "Ngày sinh",
-                        "Gi\u1EDBi t\u00EDnh", "\u0110i\u1EC3m 1", "\u0110i\u1EC3m 2", "\u0110i\u1EC3m 3" }));
+        table.setModel(new DefaultTableModel(new Object[][]{},
+                new String[]{"Mã thí sinh", "Họ tên", "Quê quán", "Ngày sinh",
+                        "Giới tính", "Điểm 1", "Điểm 2", "Điểm 3"}));
 
         table.setRowHeight(25);
 
@@ -187,12 +187,12 @@ public class QLSVView extends JFrame {
         separator_1_1.setBounds(10, 369, 738, 2);
         contentPane.add(separator_1_1);
 
-        JLabel label_QueQuan_1 = new JLabel("Th\u00F4ng tin th\u00ED sinh");
+        JLabel label_QueQuan_1 = new JLabel("Thông tin thí sinh");
         label_QueQuan_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
         label_QueQuan_1.setBounds(10, 369, 233, 54);
         contentPane.add(label_QueQuan_1);
 
-        JLabel label_ID = new JLabel("M\u00E3 th\u00ED sinh");
+        JLabel label_ID = new JLabel("Mã thí sinh");
         label_ID.setFont(new Font("Tahoma", Font.PLAIN, 19));
         label_ID.setBounds(10, 412, 102, 54);
         contentPane.add(label_ID);
@@ -203,7 +203,7 @@ public class QLSVView extends JFrame {
         textField_ID.setBounds(127, 425, 166, 29);
         contentPane.add(textField_ID);
 
-        JLabel label_HoVaTen = new JLabel("H\u1ECD v\u00E0 t\u00EAn");
+        JLabel label_HoVaTen = new JLabel("Họ và tên");
         label_HoVaTen.setFont(new Font("Tahoma", Font.PLAIN, 19));
         label_HoVaTen.setBounds(10, 457, 102, 54);
         contentPane.add(label_HoVaTen);
@@ -214,7 +214,7 @@ public class QLSVView extends JFrame {
         textField_HoVaTen.setBounds(127, 470, 166, 29);
         contentPane.add(textField_HoVaTen);
 
-        JLabel label_HoVaTen_1 = new JLabel("Qu\u00EA qu\u00E1n");
+        JLabel label_HoVaTen_1 = new JLabel("Quê quán");
         label_HoVaTen_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
         label_HoVaTen_1.setBounds(10, 510, 102, 54);
         contentPane.add(label_HoVaTen_1);
@@ -228,7 +228,7 @@ public class QLSVView extends JFrame {
         comboBox_queQuan.setBounds(127, 522, 166, 35);
         contentPane.add(comboBox_queQuan);
 
-        JLabel label_NgaySinh = new JLabel("Ng\u00E0y sinh");
+        JLabel label_NgaySinh = new JLabel("Ngày sinh");
         label_NgaySinh.setFont(new Font("Tahoma", Font.PLAIN, 19));
         label_NgaySinh.setBounds(10, 563, 155, 54);
         contentPane.add(label_NgaySinh);
@@ -239,27 +239,27 @@ public class QLSVView extends JFrame {
         textField_NgaySinh.setBounds(127, 576, 166, 29);
         contentPane.add(textField_NgaySinh);
 
-        JLabel label_ID_1 = new JLabel("Gi\u1EDBi t\u00EDnh");
+        JLabel label_ID_1 = new JLabel("Giới tính");
         label_ID_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
         label_ID_1.setBounds(324, 412, 102, 54);
         contentPane.add(label_ID_1);
 
         radioButton_nam = new JRadioButton("Nam");
-        radioButton_nam.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        radioButton_nam.setFont(new Font("Tahoma", Font.PLAIN, 17));
         radioButton_nam.setBounds(405, 429, 61, 23);
         contentPane.add(radioButton_nam);
 
         radioButton_nu = new JRadioButton("Nữ");
-        radioButton_nu.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        radioButton_nu.setBounds(489, 429, 61, 23);
+        radioButton_nu.setFont(new Font("Tahoma", Font.PLAIN, 17));
+        radioButton_nu.setBounds(509, 429, 61, 23);
         contentPane.add(radioButton_nu);
 
         btn_gioiTinh = new ButtonGroup();
         btn_gioiTinh.add(radioButton_nam);
         btn_gioiTinh.add(radioButton_nu);
 
-        JLabel label_HoVaTen_2 = new JLabel("M\u00F4n 1");
-        label_HoVaTen_2.setFont(new Font("Tahoma", Font.PLAIN, 19));
+        JLabel label_HoVaTen_2 = new JLabel("Điểm 1");
+        label_HoVaTen_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
         label_HoVaTen_2.setBounds(324, 473, 52, 23);
         contentPane.add(label_HoVaTen_2);
 
@@ -269,8 +269,8 @@ public class QLSVView extends JFrame {
         textField_Mon1.setBounds(405, 470, 166, 29);
         contentPane.add(textField_Mon1);
 
-        JLabel label_HoVaTen_2_1 = new JLabel("M\u00F4n 2");
-        label_HoVaTen_2_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+        JLabel label_HoVaTen_2_1 = new JLabel("Điểm 2");
+        label_HoVaTen_2_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
         label_HoVaTen_2_1.setBounds(324, 513, 52, 23);
         contentPane.add(label_HoVaTen_2_1);
 
@@ -280,8 +280,8 @@ public class QLSVView extends JFrame {
         textField_Mon2.setBounds(405, 510, 166, 29);
         contentPane.add(textField_Mon2);
 
-        JLabel label_Mon3 = new JLabel("M\u00F4n 3");
-        label_Mon3.setFont(new Font("Tahoma", Font.PLAIN, 19));
+        JLabel label_Mon3 = new JLabel("Điểm 3");
+        label_Mon3.setFont(new Font("Tahoma", Font.PLAIN, 16));
         label_Mon3.setBounds(324, 557, 52, 23);
         contentPane.add(label_Mon3);
 
@@ -339,7 +339,7 @@ public class QLSVView extends JFrame {
         this.setVisible(true);
     }
 
-    public void xoaForm() {
+       public void xoaForm() {
         textField_ID.setText("");
         textField_HoVaTen.setText("");
         textField_MaThiSinh_TimKiem.setText("");
@@ -353,15 +353,15 @@ public class QLSVView extends JFrame {
 
     public void themThiSinhVaoTable(ThiSinh ts) {
         DefaultTableModel model_table = (DefaultTableModel) table.getModel();
-        model_table.addRow(new Object[] { ts.getMaThiSinh() + "",
-                                          ts.getTenThiSinh(),
-                                          ts.getQueQuan().getTenTinh(),
-                                          ts.getNgaySinh().getDate() + "/" + (ts.getNgaySinh().getMonth()) + "/"
-                                                  + (ts.getNgaySinh().getYear() + 1899),
-                                          (ts.isGioiTinh() ? "Nam" : "Nữ"),
-                                          ts.getDiemMon1() + "",
-                                          ts.getDiemMon2() + "",
-                                          ts.getDiemMon3() + "", });
+        model_table.addRow(new Object[]{ts.getMaThiSinh() + "",
+                ts.getTenThiSinh(),
+                ts.getQueQuan().getTenTinh(),
+                ts.getNgaySinh().getDate() + "/" + (ts.getNgaySinh().getMonth() + 1) + "/"
+                        + (ts.getNgaySinh().getYear() + 1900),
+                (ts.isGioiTinh() ? "Nam" : "Nữ"),
+                ts.getDiemMon1() + "",
+                ts.getDiemMon2() + "",
+                ts.getDiemMon3() + "",});
     }
 
     public void themHoacCapNhatThiSinh(ThiSinh ts) {
@@ -378,8 +378,8 @@ public class QLSVView extends JFrame {
                     model_table.setValueAt(ts.getMaThiSinh() + "", i, 0);
                     model_table.setValueAt(ts.getTenThiSinh() + "", i, 1);
                     model_table.setValueAt(ts.getQueQuan().getTenTinh() + "", i, 2);
-                    model_table.setValueAt(ts.getNgaySinh().getDate() + "/" + (ts.getNgaySinh().getMonth()) + "/"
-                            + (ts.getNgaySinh().getYear() + 1899) + "", i, 3);
+                    model_table.setValueAt(ts.getNgaySinh().getDate() + "/" + (ts.getNgaySinh().getMonth() + 1)
+                            + "/" + (ts.getNgaySinh().getYear() + 1900) + "", i, 3);
                     model_table.setValueAt((ts.isGioiTinh() ? "Nam" : "Nữ"), i, 4);
                     model_table.setValueAt(ts.getDiemMon1() + "", i, 5);
                     model_table.setValueAt(ts.getDiemMon2() + "", i, 6);
@@ -512,7 +512,7 @@ public class QLSVView extends JFrame {
         while (true) {
             DefaultTableModel model_table = (DefaultTableModel) table.getModel();
             int soLuongDong = model_table.getRowCount();
-            if(soLuongDong==0)
+            if (soLuongDong == 0)
                 break;
             else
                 try {
@@ -554,18 +554,20 @@ public class QLSVView extends JFrame {
             e.printStackTrace();
         }
     }
+
     public void thucHienSaveFile() {
-        if(this.model.getTenFile().length()>0) {
+        if (this.model.getTenFile().length() > 0) {
             saveFile(this.model.getTenFile());
-        }else {
+        } else {
             JFileChooser fc = new JFileChooser();
-            int returnVal =fc.showSaveDialog(this);
+            int returnVal = fc.showSaveDialog(this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fc.getSelectedFile();
                 saveFile(file.getAbsolutePath());
             }
         }
     }
+
     public void openFile(File file) {
         ArrayList ds = new ArrayList();
         try {
@@ -573,7 +575,7 @@ public class QLSVView extends JFrame {
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
             ThiSinh ts = null;
-            while((ts = (ThiSinh) ois.readObject())!=null) {
+            while ((ts = (ThiSinh) ois.readObject()) != null) {
                 ds.add(ts);
             }
             ois.close();
@@ -582,6 +584,7 @@ public class QLSVView extends JFrame {
         }
         this.model.setDsThiSinh(ds);
     }
+
     public void thucHienOpenFile() {
         JFileChooser fc = new JFileChooser();
         int returnVal = fc.showOpenDialog(this);

@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.Action;
+import javax.swing.*;
 
 import view.QLSVView;
 
@@ -51,13 +51,11 @@ public class QLSVController implements Action{
 
     @Override
     public Object getValue(String key) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public void putValue(String key, Object value) {
-        // TODO Auto-generated method stub
 
     }
 
